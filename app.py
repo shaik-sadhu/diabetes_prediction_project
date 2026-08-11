@@ -121,6 +121,9 @@ if st.button("Predict Diabetes"):
         input_data[columns_with_invalid_zero].replace(0, float("nan"))
     )
 
+    # Ensure the data type matches the training data
+    input_data = input_data.astype(float)
+
     # Apply the same preprocessing used during training
     input_imputed = imputer.transform(input_data)
 
